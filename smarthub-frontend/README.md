@@ -1,5 +1,15 @@
 # Détail du Projet SmartHub Frontend
 
+<p align="center">
+  <img src="https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white" alt="React">
+  <img src="https://img.shields.io/badge/TypeScript-4.x-3178C6?logo=typescript&logoColor=white" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Chatbot-IA-purple?logo=openai&logoColor=white" alt="Chatbot IA">
+  <img src="https://img.shields.io/badge/LLM-Intelligence_Artificielle-black?logo=openai&logoColor=white" alt="LLM">
+  <img src="https://img.shields.io/badge/Botpress-Conversationnel-blue?logo=botpress&logoColor=white" alt="Botpress">
+  <img src="https://img.shields.io/badge/Frontend-Web-success" alt="Frontend Web">
+</p>
+
+
 ## Introduction
 SmartHub Frontend est une application web développée en React avec TypeScript. Il s'agit d'une plateforme éducative complète qui permet aux utilisateurs (étudiants, enseignants, administrateurs) de gérer des cours, des quiz, des projets, des stages, des annonces et des ressources. L'application utilise des services backend pour la gestion des données et l'authentification.
 
