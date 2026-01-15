@@ -10,6 +10,33 @@
 
 Cette documentation explique l'objectif, l'architecture, les composants principaux, les fichiers importants, les classes et comment lancer l'application en développement.
 
+<!-- Table des matières cliquable -->
+## Table des matières
+
+- Sections principales (dans ce README)
+  - Vue d'ensemble
+  - Architecture
+  - Décisions et conventions clés
+  - Structure des dossiers (résumé)
+  - Lancement local
+  - Endpoints (exemples)
+  - Sécurité & améliorations possibles
+
+- Documentation détaillée (fichiers dans `docs/`)
+  - [Table des contenus (point d'entrée) — docs/TOC.md](docs/TOC.md)
+  - [Controllers — docs/controllers.md](docs/controllers.md)
+  - [Services — docs/services.md](docs/services.md)
+  - [Repositories — docs/repositories.md](docs/repositories.md)
+  - [Models — docs/models.md](docs/models.md)
+  - [DTOs — docs/dtos.md](docs/dtos.md)
+  - [Config — docs/config.md](docs/config.md)
+  - [Agents — docs/agents.md](docs/agents.md)
+  - [RAG — docs/rag.md](docs/rag.md)
+  - [Diagrams — docs/diagrams.md](docs/diagrams.md)
+  - [Visual Architecture — docs/visual-architecture.md](docs/visual-architecture.md)
+
+> Remarque : sur GitHub, les liens relatifs vers les fichiers Markdown sous `docs/` ouvrent directement ces fichiers — idéal pour la navigation du dépôt.
+
 ## 1. Vue d'ensemble
 - **But** : Fournir une API pour gérer utilisateurs et ressources pédagogiques (annonces, stages, projets, quiz, ressources) de l'IATD (Institut d'Animation et de Technologies Digitales).
 - **Stack** : Java 21, Spring Boot 3.4.11, Spring Data JPA, PostgreSQL, Lombok, Maven.
@@ -75,86 +102,6 @@ Notes rapides :
 - `FileStorageService` gère la logique de stockage de fichiers (probablement pour ressources ou pièces jointes).
 - Les DTO statistiques (`AnswerStatisticsDTO`, `QuizStatisticsDTO`, `QuizSummaryDTO`) fournissent des vues agrégées côté API sans exposer les entités directement.
 - `BaseEntity` factorise les champs communs (ex.: identifiant, timestamps) pour réduire la duplication dans les entités domaine.
-
-### 4.2 Arborescence des répertoires (extraits)
-
-```
-src/main/java/com/iatd/smarthub/
-├── SmarthubApplication.java
-├── controller/
-│   ├── AnnouncementController.java
-│   ├── InternshipController.java
-│   ├── ProjectController.java
-│   ├── QuizController.java
-│   ├── ResourceController.java
-│   └── UserController.java
-├── service/
-│   ├── AnnouncementService.java
-│   ├── FileStorageService.java
-│   ├── InternshipService.java
-│   ├── ProjectService.java
-│   ├── QuizAttemptService.java
-│   ├── QuizService.java
-│   ├── QuizServiceImpl.java
-│   ├── ResourceService.java
-│   └── UserService.java
-├── repository/
-│   ├── AnnouncementRepository.java
-│   ├── AnswerRepository.java
-│   ├── InternshipRepository.java
-│   ├── ProjectRepository.java
-│   ├── QuestionRepository.java
-│   ├── QuizAttemptRepository.java
-│   ├── QuizRepository.java
-│   ├── ResourceRepository.java
-│   └── UserRepository.java
-├── dto/
-│   ├── AnnouncementRequestDTO.java
-│   ├── AnnouncementResponseDTO.java
-│   ├── AnswerRequestDTO.java
-│   ├── AnswerResponseDTO.java
-│   ├── AnswerStatisticsDTO.java
-│   ├── InternshipRequestDTO.java
-│   ├── InternshipResponseDTO.java
-│   ├── ProjectRequestDTO.java
-│   ├── ProjectResponseDTO.java
-│   ├── QuestionRequestDTO.java
-│   ├── QuestionResponseDTO.java
-│   ├── QuizAttemptRequestDTO.java
-│   ├── QuizAttemptResponseDTO.java
-│   ├── QuizRequestDTO.java
-│   ├── QuizResponseDTO.java
-│   ├── QuizStatisticsDTO.java
-│   ├── QuizSummaryDTO.java
-│   ├── ResourceRequestDTO.java
-│   ├── ResourceResponseDTO.java
-│   ├── UserBasicDTO.java
-│   ├── UserRequestDTO.java
-│   ├── UserResponseDTO.java
-│   └── QuizGenerationRequest.java  ← NOUVEAU
-├── model/
-│   ├── base/
-│   │   └── BaseEntity.java
-│   ├── user/
-│   │   └── User.java
-│   ├── announcement/
-│   │   ├── Announcement.java
-│   │   └── AnnouncementType.java
-│   ├── internship/
-│   │   └── Internship.java
-│   ├── project/
-│   │   └── Project.java
-│   ├── quiz/
-│   │   ├── Answer.java
-│   │   ├── Question.java
-│   │   ├── QuestionType.java
-│   │   ├── Quiz.java
-│   │   └── QuizAttempt.java
-│   └── resource/
-│       └── Resource.java
-```
-
-> Astuce : l'arborescence ci-dessus est un instantané ; ajoutez ce bloc à chaque nouvelle fonctionnalité majeure pour garder la documentation synchronisée.
 
 ## 5. Fichiers et rôles principaux
 - `pom.xml` : Dépendances, version parent Spring Boot.
