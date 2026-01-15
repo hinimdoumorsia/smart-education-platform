@@ -210,10 +210,3 @@ Documentation (fichiers dans `docs/`) :
 ## Documentation détaillée (docs/)
 
 Les documents détaillés sont dans le dossier `docs/`. Ouvre `docs/TOC.md` pour le point d'entrée.
-
-Que puis-je faire ensuite ?
-
-Générer une documentation complète par classe (méthodes publiques, signatures, javadoc, exemples). Cela nécessite que je lise chaque fichier Java; je peux l'automatiser si tu confirmes.
-Générer un fichier docs/ par package avec fichiers Markdown par classe.
-Ajouter un sommaire (Table of Contents) et liens dans ce README.
-Dis-moi la montée en détails que tu veux : "aperçu" (déjà fait), "détaillé (méthodes/signatures)", ou "docs séparés par package".
