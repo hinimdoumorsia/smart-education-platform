@@ -1,0 +1,45 @@
+# ======================
+# Frontend (React / Angular / Vue)
+# ======================
+node_modules/
+dist/
+build/
+
+# ======================
+# Backend
+# ======================
+uploads/
+.env
+target/
+*.log
+
+# ======================
+# IA / Data / Models
+# ======================
+*.h5
+*.pt
+*.onnx
+*.model
+data/
+datasets/
+
+# ======================
+# IDE / Tools
+# ======================
+.vscode/
+.idea/
+.metadata/
+.settings/
+
+# ======================
+# OS
+# ======================
+Thumbs.db
+.DS_Store
+
+# ======================
+# Archives
+# ======================
+*.zip
+*.7z
+*.rar
