@@ -1,0 +1,228 @@
+/* DashboardPage.css */
+
+/* Variables pour les couleurs */
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --success-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  --warning-gradient: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+  --info-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --danger-gradient: linear-gradient(135deg, #ff0844 0%, #ffb199 100%);
+}
+
+/* En-têtes selon le rôle */
+.dashboard-header {
+  padding: 3rem 0;
+  border-radius: 0 0 20px 20px;
+  margin-bottom: 2rem;
+}
+
+.student-bg {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.teacher-bg {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+}
+
+.admin-bg {
+  background: linear-gradient(135deg, #ff0844 0%, #ffb199 100%);
+}
+
+/* Cartes de statistiques */
+.stat-card {
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+}
+
+.stat-card.bg-primary-gradient {
+  background: var(--primary-gradient);
+}
+
+.stat-card.bg-success-gradient {
+  background: var(--success-gradient);
+}
+
+.stat-card.bg-warning-gradient {
+  background: var(--warning-gradient);
+}
+
+.stat-card.bg-info-gradient {
+  background: var(--info-gradient);
+}
+
+.stat-card.bg-danger-gradient {
+  background: var(--danger-gradient);
+}
+
+/* Cartes d'action rapide */
+.quick-action-card {
+  transition: all 0.3s ease;
+  border-radius: 15px;
+}
+
+.quick-action-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.icon-wrapper {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.icon-wrapper i {
+  font-size: 1.8rem;
+}
+
+/* Éléments de cours */
+.course-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Deadlines */
+.deadline-item {
+  transition: background-color 0.2s;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.deadline-item:hover {
+  background-color: rgba(0, 123, 255, 0.05);
+}
+
+/* Activités */
+.activity-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+}
+
+.activity-icon.quiz {
+  color: #ffc107;
+}
+
+.activity-icon.assignment {
+  color: #20c997;
+}
+
+.activity-icon.announcement {
+  color: #0dcaf0;
+}
+
+/* Flux d'activités */
+.activity-feed .activity-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.activity-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.activity-content {
+  flex: 1;
+}
+
+/* Boutons et badges */
+.badge {
+  font-weight: 500;
+}
+
+.btn {
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+/* Table responsive */
+.table-responsive {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 123, 255, 0.05);
+}
+
+/* Cards générales */
+.card {
+  border-radius: 15px;
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Admin specific */
+.admin-action-card {
+  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.admin-action-card:hover {
+  border-color: #007bff;
+  transform: scale(1.05);
+}
+
+.admin-badge {
+  background: rgba(255, 255, 255, 0.2);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .dashboard-header {
+    padding: 2rem 0;
+    text-align: center;
+  }
+  
+  .display-5 {
+    font-size: 1.8rem;
+  }
+  
+  .quick-action-card {
+    margin-bottom: 1rem;
+  }
+}
