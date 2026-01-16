@@ -62,7 +62,6 @@ Exemples d'appels :
 
 # 3. COMPOSANTS DU SYSTÈME RAG
 ## A. SERVICES PRINCIPAUX :
-```text
 ┌─────────────────────────────────────────────────────┐
 │               RAGQuizGenerationService               │
 ├─────────────────────────────────────────────────────┤
