@@ -58,6 +58,8 @@ Exemples d'appels :
 │                        │                                    │
 └────────────────────────┴────────────────────────────────────┘
 
+---
+
 ## 2. FLUX DE GÉNÉRATION DE QUIZ RAG
 
 # 3. COMPOSANTS DU SYSTÈME RAG
