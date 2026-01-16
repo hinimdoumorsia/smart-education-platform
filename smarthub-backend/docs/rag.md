@@ -127,3 +127,126 @@ Exemples d'appels :
 │ • updateAllEmbeddings()                             │
 │ • findSemanticRelevantContent()                     │
 └─────────────────────────────────────────────────────┘
+# 5. STRUCTURE DES MODÈLES
+
+┌─────────────────────────────────────────────────────┐
+│                KnowledgeBase (Modèle)                │
+├─────────────────────────────────────────────────────┤
+│ Champs :                                            │
+│ • id: Long                                          │
+│ • title: String                                     │
+│ • content: Text                                     │
+│ • tags: List<String>                                │
+│ • embedding: float[] (pour recherche vectorielle)   │
+│ • usageCount: Integer                               │
+│ • source: String                                    │
+│ • courseId: Long                                    │
+└─────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────┐
+│              LearningProfile (Modèle)                │
+├─────────────────────────────────────────────────────┤
+│ Champs :                                            │
+│ • id: Long                                          │
+│ • user: User (OneToOne)                             │
+│ • interests: List<String>                           │
+│ • weaknesses: List<String>                          │
+│ • learningStyle: String                             │
+│ • proficiencyLevel: String                          │
+└─────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────┐
+│          QuizRecommendation (Modèle)                 │
+├─────────────────────────────────────────────────────┤
+│ Champs :                                            │
+│ • id: Long                                          │
+│ • user: User (ManyToOne)                            │
+│ • recommendedTopic: String                          │
+│ • reason: Text                                      │
+│ • confidenceScore: Double                           │
+│ • accepted: Boolean                                 │
+│ • recommendedAt: LocalDateTime                      │
+└─────────────────────────────────────────────────────┘
+# 6. FLUX DE RECHERCHE VECTORIELLE
+
+┌─────────────────────────────────────────────────────┐
+│        FLUX RECHERCHE VECTORIELLE GEMINI             │
+├─────────────────────────────────────────────────────┤
+│ Étape 1 : Requête utilisateur                        │
+│    ↓                                                 │
+│ Étape 2 : Générer embedding avec Gemini              │
+│    • Text → embedding vector (768 dimensions)        │
+│    ↓                                                 │
+│ Étape 3 : Recherche dans KnowledgeBase               │
+│    • SQL : ORDER BY embedding <=> :embedding         │
+│    • Limite : top N résultats                        │
+│    ↓                                                 │
+│ Étape 4 : Calcul similarités cosinus                 │
+│    • score = cosine_similarity(query, doc)           │
+│    • Bonus : tags correspondants (+15%)              │
+│    • Bonus : usageCount élevé (+5%)                  │
+│    ↓                                                 │
+│ Étape 5 : Tri et filtrage                           │
+│    • Trier par score décroissant                    │
+│    • Appliquer seuil minimum (0.3)                  │
+│    • Limiter résultats (5-10 max)                   │
+│    ↓                                                 │
+│ Étape 6 : Retour résultats pertinents                │
+└─────────────────────────────────────────────────────┘
+
+# 8. DIAGRAMME DE DÉPLOIEMENT
+
+┌─────────────────────────────────────────────────────┐
+│                    ENVIRONNEMENT                    │
+├─────────────────────────────────────────────────────┤
+│                                                     │
+│  ┌─────────────┐      ┌─────────────┐              │
+│  │   CLIENT    │◄────►│  API GATEWAY│              │
+│  │  (Browser)  │      │   (Spring)  │              │
+│  └─────────────┘      └──────┬──────┘              │
+│                              │                     │
+│  ┌───────────────────────────┴──────────┐          │
+│  │         MICROSERVICES SPRING         │          │
+│  │  ┌─────────┐  ┌─────────┐  ┌──────┐ │          │
+│  │  │ Quiz    │  │  User   │  │ Auth │ │          │
+│  │  │ Service │  │ Service │  │Service│ │          │
+│  │  └─────────┘  └─────────┘  └──────┘ │          │
+│  └──────────────┬───────────────────────┘          │
+│                 │                                  │
+│  ┌──────────────┴───────────────────────┐          │
+│  │         SERVICES EXTERNES            │          │
+│  │  ┌─────────┐       ┌─────────────┐  │          │
+│  │  │ Gemini  │       │  PostgreSQL │  │          │
+│  │  │   AI    │       │ + pgvector  │  │          │
+│  │  └─────────┘       └─────────────┘  │          │
+│  └──────────────────────────────────────┘          │
+│                                                     │
+└─────────────────────────────────────────────────────┘
+
+# 9. FLUX D'ERREUR ET FALLBACKS
+
+┌─────────────────────────────────────────────────────┐
+│          GESTION DES ERREURS - STRATÉGIE            │
+├─────────────────────────────────────────────────────┤
+│ 1. Échec Gemini AI :                                │
+│    • Fallback : Questions basiques                  │
+│    • Cache : Utiliser derniers embeddings           │
+│    • Log : Notification administrateur              │
+│                                                     │
+│ 2. Fichier PDF inaccessible :                       │
+│    • Fallback : Utiliser métadonnées                │
+│    • Alternative : Chercher dans autres dossiers    │
+│    • Message : "Contenu limité disponible"          │
+│                                                     │
+│ 3. Embedding échoué :                               │
+│    • Fallback : Embedding aléatoire                 │
+│    • Stratégie : Basé sur hash du texte             │
+│    • Dimension : 768 (compatible Gemini)            │
+│                                                     │
+│ 4. JSON invalide de Gemini :                        │
+│    • Nettoyage : Retirer backticks markdown        │
+│    • Extraction : Chercher JSON dans réponse        │
+│    • Fallback : Générer questions manuellement      │
+└─────────────────────────────────────────────────────┘
+
+# 10. STATISTIQUES ET MONITORING
