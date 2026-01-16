@@ -27,3 +27,32 @@ Exemples d'appels :
 - `embeddingService.embed(text)` → float[]
 - `vectorRAGService.search(embedding, topK)` → List<Passage>
 - `ragQuizGenerationService.generateQuiz(topic, topK)` → Quiz
+  # 📊 DIAGRAMMES FONCTIONNELS DU SYSTÈME RAG
+## 1. ARCHITECTURE GLOBALE DU SYSTÈME
+
+┌─────────────────────────────────────────────────────────────┐
+│                    SMARTHUB - PLATEFORME RAG                 │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  ┌─────────────┐  ┌─────────────┐  ┌───────────────────┐   │
+│  │   FRONTEND  │◄─┤    API REST  │◄─┤  SPRING BOOT APP  │   │
+│  └─────────────┘  └─────────────┘  └─────────┬─────────┘   │
+│                                               │             │
+├───────────────────────────────────────────────┼─────────────┤
+│                    SERVICE LAYER              │             │
+│  ┌────────────────────────────────────────────┴─────┐       │
+│  │                RAG QUIZ SERVICE                   │       │
+│  │  ┌─────────┐  ┌─────────┐  ┌─────────┐          │       │
+│  │  │Embedding│  │  Vector │  │   PDF   │          │       │
+│  │  │ Service │  │   RAG   │  │ Parser  │          │       │
+│  │  └─────────┘  └─────────┘  └─────────┘          │       │
+│  └─────────────────────┬───────────────────────────┘       │
+│                        │                                    │
+├────────────────────────┼────────────────────────────────────┤
+│        AI LAYER        │         DATA LAYER                │
+│  ┌─────────────┐       │  ┌─────────────┐  ┌─────────────┐ │
+│  │   GEMINI AI │◄──────┼─►│KNOWLEDGEBASE│  │ USER PROFIL │ │
+│  │  (via API)  │       │  │ REPOSITORY  │  │REPOSITORY   │ │
+│  └─────────────┘       │  └─────────────┘  └─────────────┘ │
+│                        │                                    │
+└────────────────────────┴────────────────────────────────────┘
