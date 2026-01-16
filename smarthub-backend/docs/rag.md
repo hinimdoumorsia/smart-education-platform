@@ -57,3 +57,72 @@ Exemples d'appels :
 │  └─────────────┘       │  └─────────────┘  └─────────────┘  │
 │                        │                                    │
 └────────────────────────┴────────────────────────────────────┘
+
+## 2. FLUX DE GÉNÉRATION DE QUIZ RAG
+
+# 3. COMPOSANTS DU SYSTÈME RAG
+## A. SERVICES PRINCIPAUX :
+```text
+┌─────────────────────────────────────────────────────┐
+│               RAGQuizGenerationService               │
+├─────────────────────────────────────────────────────┤
+│ Responsabilités :                                    │
+│ • Construire prompts optimisés                      │
+│ • Appeler Gemini AI via OllamaService               │
+│ • Parser les réponses JSON                          │
+│ • Gérer les fallbacks                               │
+│                                                     │
+│ Méthodes clés :                                     │
+│ • generateQuizFromRAGPrompt()                       │
+│ • buildRAGPrompt()                                  │
+│ • parseQuizFromJSON()                               │
+│ • validateQuizJSON()                                │
+└─────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────┐
+│                  RAGQuizService                      │
+├─────────────────────────────────────────────────────┤
+│ Responsabilités :                                    │
+│ • Générer quiz personnalisés                        │
+│ • Extraire contenu des fichiers (PDF, texte)        │
+│ • Gérer les profils d'apprentissage                 │
+│ • Recommander des quiz                              │
+│                                                     │
+│ Méthodes clés :                                     │
+│ • generatePersonalizedQuizForCourse()               │
+│ • extractFileContent() (PDFBox)                     │
+│ • updateLearningProfile()                           │
+│ • recommendNextQuiz()                               │
+└─────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────┐
+│                 EmbeddingService                     │
+├─────────────────────────────────────────────────────┤
+│ Responsabilités :                                    │
+│ • Générer embeddings avec Gemini                    │
+│ • Gérer le cache d'embeddings                       │
+│ • Calculer similarités cosinus                      │
+│ • Tester la connexion AI                            │
+│                                                     │
+│ Méthodes clés :                                     │
+│ • generateEmbedding()                               │
+│ • cosineSimilarity()                                │
+│ • testAIConnection()                                │
+│ • findMostSimilar()                                 │
+└─────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────┐
+│                 VectorRAGService                     │
+├─────────────────────────────────────────────────────┤
+│ Responsabilités :                                    │
+│ • Recherche vectorielle                             │
+│ • Recherche hybride (texte + vectorielle)           │
+│ • Mise à jour embeddings                            │
+│ • Recherche sémantique                              │
+│                                                     │
+│ Méthodes clés :                                     │
+│ • findVectorRelevantContent()                       │
+│ • findHybridRelevantContent()                       │
+│ • updateAllEmbeddings()                             │
+│ • findSemanticRelevantContent()                     │
+└─────────────────────────────────────────────────────┘
