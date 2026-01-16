@@ -30,6 +30,7 @@ Exemples d'appels :
   # 📊 DIAGRAMMES FONCTIONNELS DU SYSTÈME RAG
 ## 1. ARCHITECTURE GLOBALE DU SYSTÈME
 
+```text
 ┌─────────────────────────────────────────────────────────────┐
 │                    SMARTHUB - PLATEFORME RAG                 │
 ├─────────────────────────────────────────────────────────────┤
