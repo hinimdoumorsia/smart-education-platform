@@ -1,23 +1,22 @@
-# Étape 1 : build Maven uniquement pour le backend
+# Étape 1 : Build Maven du backend
 FROM maven:3.9.9-eclipse-temurin-21 AS build
 WORKDIR /app
 
-# Copier uniquement les fichiers du backend
-COPY smarthub-backend/pom.xml pom.xml
-COPY smarthub-backend/src ./src
+# Copier uniquement le contenu du dossier backend
+COPY ./smarthub-backend /app
 
-# Build Maven
+# Build du projet backend
 RUN mvn clean package -DskipTests
 
 # Étape 2 : runtime Java
 FROM eclipse-temurin:21-jre
 WORKDIR /app
 
-# Copier le JAR du backend depuis l'étape build
+# Copier le jar buildé depuis l'étape 1
 COPY --from=build /app/target/*.jar app.jar
 
-# Port exposé
+# Exposer le port sur lequel Spring Boot écoute
 EXPOSE 8081
 
-# Commande pour lancer l'application
+# Lancer l'application
 CMD ["java", "-jar", "app.jar"]
