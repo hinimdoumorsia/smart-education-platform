@@ -14,7 +14,7 @@
     </parent>
 
     <groupId>com.iatd</groupId>
-    <artifactId>smarthub1</artifactId>
+    <artifactId>smarthub</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>smarthub1</name>
     <description>IATD Smarthub - Plateforme de centralisation des ressources IATD</description>
