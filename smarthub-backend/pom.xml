@@ -14,7 +14,7 @@
     </parent>
 
     <groupId>com.iatd</groupId>
-    <artifactId>smarthub</artifactId>
+    <artifactId>smarthub1</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>smarthub1</name>
     <description>IATD Smarthub - Plateforme de centralisation des ressources IATD</description>
@@ -137,6 +137,11 @@
 		    <groupId>com.pgvector</groupId>
 		    <artifactId>pgvector</artifactId>
 		    <version>0.1.5</version>
+		</dependency>
+		<dependency>
+			<groupId>com.iatd</groupId>
+			<artifactId>smarthub</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<!-- Dans pom.xml -->
 		<dependency>
