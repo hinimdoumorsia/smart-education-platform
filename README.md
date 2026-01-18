@@ -454,12 +454,53 @@ Remarques :
 - Spring Boot docs: https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/
 - Docker: https://docs.docker.com/
 
+## 📥 Cloner et exécuter le projet SmartHub
+
+### 🧩 Prérequis
+- Git installé : https://git-scm.com/downloads  
+- Connexion Internet  
+- (Optionnel) Java 21, Node.js et PostgreSQL pour exécuter le projet
+
+### Étapes
+
+1. **Ouvrir un terminal**  
+   - Windows : PowerShell ou Git Bash  
+   - Linux / macOS : Terminal
+
+2. **Se placer dans le dossier de travail**  
+```bash
+cd Documents
+
+3. Cloner le dépôt GitHub
+
+git clone https://github.com/hinimdoumorsia/smart-education-platform.git
+
+4. Accéder au dossier du projet
+
+cd smart-education-platform
+
+5.Vérifier le contenu
+
+ls
+
+Vous devriez voir les dossiers backend et frontend.
+
+Lancer le backend
+
+cd backend
+./mvnw spring-boot:run
+
+Lancer le frontend
+
+cd frontend
+npm install
+npm start
+
+✅ Résultat
+
+Backend API : http://localhost:8081
+
+Frontend Web : http://localhost:3000
+
 Fin
 ---
-
-Si vous voulez, je peux :
-- appliquer automatiquement ces valeurs dans `src/main/resources/application.properties` (par exemple remplacer `root`/vide par un utilisateur sécurisé) ;
-- créer le `docker-compose.yml` réel dans le projet ;
-- dupliquer/adapter le guide dans l'autre dossier `smarthub` aussi.
-
-Dites-moi quelle option vous voulez que je fasse ensuite.
