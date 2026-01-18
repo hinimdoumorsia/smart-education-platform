@@ -1,30 +1,12 @@
-# =========================
-# Étape 1 : Build Maven
-# =========================
+# Étape 1 : build Maven
 FROM maven:3.9.9-eclipse-temurin-21 AS build
-
-# On se place dans le dossier de travail
 WORKDIR /app
-
-# On copie uniquement le backend (pom.xml + src)
-COPY pom.xml .
-COPY src ./src
-
-# Build du projet sans lancer les tests
+COPY smarthub-backend/ .  # Copie seulement le backend
 RUN mvn clean package -DskipTests
 
-# =========================
-# Étape 2 : Runtime Java
-# =========================
+# Étape 2 : runtime Java
 FROM eclipse-temurin:21-jre
-
 WORKDIR /app
-
-# On récupère le jar construit dans l'étape précédente
-COPY --from=build /app/target/*.jar app.jar
-
-# Port exposé pour Render
+COPY --from=build /app/target/smarthub1-0.0.1-SNAPSHOT.jar app.jar  # adapte selon le nom du JAR
 EXPOSE 8081
-
-# Commande pour lancer l'application
 CMD ["java", "-jar", "app.jar"]
