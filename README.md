@@ -191,20 +191,6 @@ Application accessible sur http://localhost:3000
 
 ---
 
-## 📈 Évolutions Futures
-- CI/CD GitHub Actions
-- Tests unitaires et d’intégration
-- Déploiement cloud
-- Notifications temps réel
-- Application mobile
-
----
-
-## 📜 Licence
-MIT
-
----
-
 ## 👨‍💻 Projet
 SmartHub — Plateforme éducative intelligente intégrant l’IA moderne, les LLM, le RAG et les systèmes multi-agents.
 
@@ -214,11 +200,11 @@ Veuillez consulter les fichiers `README.md` et le dossier `docs/` correspondants
 
 Guide d'installation et d'exécution du projet SmartHub (smarthub1)
 
-Résumé et objectif
-------------------
+# Guide complet du projet de A à Z
+--------------------------------
 Ce guide explique pas à pas comment préparer la base de données MariaDB (ou MariaDB via Docker), configurer l'application, et exécuter le projet SmartHub (répertoire `smarthub1`) sur Windows (cmd.exe). Il indique aussi les modifications à effectuer si vous souhaitez exécuter le projet sur un autre poste ou avec d'autres identifiants.
 
-Checklist (ce que nous allons faire)
+# Checklist (ce que nous allons faire)
 -----------------------------------
 - [ ] Installer Java (JDK) compatible
 - [ ] Installer MariaDB ou utiliser Docker
@@ -501,6 +487,7 @@ npm start
 Backend API : http://localhost:8081
 
 Frontend Web : http://localhost:3000
+
 
 Fin
 ---
