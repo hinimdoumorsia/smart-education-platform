@@ -204,7 +204,58 @@ Guide d'installation et d'exécution du projet SmartHub (smarthub1)
 --------------------------------
 Ce guide explique pas à pas comment préparer la base de données MariaDB (ou MariaDB via Docker), configurer l'application, et exécuter le projet SmartHub (répertoire `smarthub1`) sur Windows (cmd.exe). Il indique aussi les modifications à effectuer si vous souhaitez exécuter le projet sur un autre poste ou avec d'autres identifiants.
 
-# Checklist (ce que nous allons faire)
+---
+## 📥 Cloner et exécuter le projet SmartHub
+
+### 🧩 Prérequis
+- Git installé : https://git-scm.com/downloads  
+- Connexion Internet  
+- (Optionnel) Java 21, Node.js et PostgreSQL pour exécuter le projet
+
+### Étapes
+
+1. **Ouvrir un terminal**  
+   - Windows : PowerShell ou Git Bash  
+   - Linux / macOS : Terminal
+
+2. **Se placer dans le dossier de travail**  
+```bash
+cd Documents
+
+3. Cloner le dépôt GitHub
+
+git clone https://github.com/hinimdoumorsia/smart-education-platform.git
+
+4. Accéder au dossier du projet
+
+cd smart-education-platform
+
+5.Vérifier le contenu
+
+ls
+
+Vous devriez voir les dossiers backend et frontend.
+
+Lancer le backend
+
+cd backend
+./mvnw spring-boot:run
+
+Lancer le frontend
+
+cd frontend
+npm install
+npm start
+
+✅ Résultat
+
+Backend API : http://localhost:8081
+
+Frontend Web : http://localhost:3000
+
+---
+
+# Checklist (ce que nous allons faire pour bien executer le projet sans erreur)
 -----------------------------------
 - [ ] Installer Java (JDK) compatible
 - [ ] Installer MariaDB ou utiliser Docker
@@ -439,54 +490,6 @@ Remarques :
 - PostgreSQL docs: https://www.postgresql.org/docs/
 - Spring Boot docs: https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/
 - Docker: https://docs.docker.com/
-
-## 📥 Cloner et exécuter le projet SmartHub
-
-### 🧩 Prérequis
-- Git installé : https://git-scm.com/downloads  
-- Connexion Internet  
-- (Optionnel) Java 21, Node.js et PostgreSQL pour exécuter le projet
-
-### Étapes
-
-1. **Ouvrir un terminal**  
-   - Windows : PowerShell ou Git Bash  
-   - Linux / macOS : Terminal
-
-2. **Se placer dans le dossier de travail**  
-```bash
-cd Documents
-
-3. Cloner le dépôt GitHub
-
-git clone https://github.com/hinimdoumorsia/smart-education-platform.git
-
-4. Accéder au dossier du projet
-
-cd smart-education-platform
-
-5.Vérifier le contenu
-
-ls
-
-Vous devriez voir les dossiers backend et frontend.
-
-Lancer le backend
-
-cd backend
-./mvnw spring-boot:run
-
-Lancer le frontend
-
-cd frontend
-npm install
-npm start
-
-✅ Résultat
-
-Backend API : http://localhost:8081
-
-Frontend Web : http://localhost:3000
 
 
 Fin
