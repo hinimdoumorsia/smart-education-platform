@@ -43,3 +43,9 @@ Thumbs.db
 *.zip
 *.7z
 *.rar
+
+node_modules/
+.env
+dist/
+build/
+
