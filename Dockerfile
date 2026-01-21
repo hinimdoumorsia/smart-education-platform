@@ -1,3 +1,4 @@
+# Dockerfile à la racine de smart-education-platform
 FROM maven:3.9.9-eclipse-temurin-21 AS build
 WORKDIR /app
 COPY smarthub-backend/pom.xml .
