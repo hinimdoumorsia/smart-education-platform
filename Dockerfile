@@ -1,12 +1,8 @@
 FROM maven:3.9.9-eclipse-temurin-21 AS build
 WORKDIR /app
-
-# Copier le pom.xml depuis le sous-dossier backend
-COPY ./smarthub-backend/pom.xml .
+COPY smarthub-backend/pom.xml .
 RUN mvn dependency:go-offline
-
-# Copier le code source
-COPY ./smarthub-backend/src ./src
+COPY smarthub-backend/src ./src
 RUN mvn clean package -DskipTests
 
 FROM eclipse-temurin:21-jre
