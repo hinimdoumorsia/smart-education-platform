@@ -140,7 +140,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.iatd</groupId>
-			<artifactId>smarthub</artifactId>
+			<artifactId>smarthub1</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		<!-- Dans pom.xml -->
