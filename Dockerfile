@@ -1,9 +1,12 @@
-# Dockerfile à la racine de smart-education-platform
 FROM maven:3.9.9-eclipse-temurin-21 AS build
 WORKDIR /app
-COPY smarthub-backend/pom.xml .
+
+# Copier le pom.xml depuis le sous-dossier backend
+COPY ./smarthub-backend/pom.xml .
 RUN mvn dependency:go-offline
-COPY smarthub-backend/src ./src
+
+# Copier le code source
+COPY ./smarthub-backend/src ./src
 RUN mvn clean package -DskipTests
 
 FROM eclipse-temurin:21-jre
