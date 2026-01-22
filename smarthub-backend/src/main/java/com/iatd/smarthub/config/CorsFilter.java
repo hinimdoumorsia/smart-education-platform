@@ -26,12 +26,21 @@ public class CorsFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) res;
         HttpServletRequest request = (HttpServletRequest) req;
         
-        // Autoriser l'origine spécifique
-        response.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
-        response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, PATCH");
-        response.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type, Accept, X-Requested-With");
+        // Récupérer l'origine de la requête
+        String origin = request.getHeader("Origin");
+        
+        // Déterminer quelle origine autoriser
+        String allowedOrigin = determineAllowedOrigin(origin);
+        
+        if (!allowedOrigin.isEmpty()) {
+            response.setHeader("Access-Control-Allow-Origin", allowedOrigin);
+        }
+        
+        response.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, PATCH, HEAD");
+        response.setHeader("Access-Control-Allow-Headers", "Authorization, Content-Type, Accept, X-Requested-With, Origin");
         response.setHeader("Access-Control-Allow-Credentials", "true");
         response.setHeader("Access-Control-Max-Age", "3600");
+        response.setHeader("Access-Control-Expose-Headers", "Authorization");
         
         // Si c'est une requête OPTIONS, répondre immédiatement
         if (HttpMethod.OPTIONS.toString().equalsIgnoreCase(request.getMethod())) {
@@ -40,6 +49,33 @@ public class CorsFilter implements Filter {
         }
         
         chain.doFilter(req, res);
+    }
+
+    private String determineAllowedOrigin(String origin) {
+        if (origin == null) {
+            return "http://localhost:3000"; // Par défaut
+        }
+        
+        // Liste des origines autorisées
+        if (origin.startsWith("http://localhost:")) {
+            return origin; // Autoriser tous les localhost
+        }
+        
+        // Vercel domains - CORRECTION DU REGEX
+        if (origin.equals("https://smart-education-platform-3qsejixj2.vercel.app") ||
+            origin.equals("https://smart-education-platform-pied.vercel.app") ||
+            origin.matches("^https://smart-education-platform-[a-zA-Z0-9]+\\.vercel\\.app$") ||
+            origin.matches("^https://smart-education-platform-[a-zA-Z0-9]+-[a-zA-Z0-9]+\\.vercel\\.app$")) {
+            return origin;
+        }
+        
+        // Render backend
+        if (origin.equals("https://smart-education-platform.onrender.com")) {
+            return origin;
+        }
+        
+        // Par défaut, refuser (retourner une origine vide)
+        return "";
     }
 
     @Override
