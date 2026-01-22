@@ -158,10 +158,13 @@ public class SecurityConfig {
         config.setAllowedOrigins(Arrays.asList(
             "http://localhost:3000",
             "http://localhost:3002",
-            "http://localhost:8081"
+            "http://localhost:8081",
+            "https://smart-education-platform-pied.vercel.app",          // Votre domaine Vercel actuel
+            "https://smart-education-platform-*.vercel.app",            // Tous les sous-domaines Vercel
+            "https://smart-education-platform.onrender.com"             // Votre backend lui-même
         ));
         config.setAllowedMethods(Arrays.asList("GET","POST","PUT","DELETE","OPTIONS","PATCH","HEAD"));
-        config.setAllowedHeaders(Arrays.asList("Authorization","Content-Type","Accept","X-Requested-With"));
+        config.setAllowedHeaders(Arrays.asList("Authorization","Content-Type","Accept","X-Requested-With","Origin"));
         config.setExposedHeaders(Arrays.asList("Authorization"));
         config.setAllowCredentials(true);
         config.setMaxAge(3600L);
