@@ -16,8 +16,15 @@
 
 ## 📌 Description Générale
 
+# SmartHub – Plateforme Éducative
+
 Ce dépôt contient le développement d’une **application moderne complète** intégrant des **outils avancés d’intelligence artificielle**, notamment des **modèles LLM**, des mécanismes de **RAG (Retrieval-Augmented Generation)**, ainsi que des **agents intelligents de supervision et d’orchestration**.  
-La plateforme **SmartHub** est une **plateforme éducative** conçue pour moderniser l’enseignement et faciliter l’échange entre **étudiants, enseignants et administrateurs** à travers des **assistants chatbot multi-agents**, la **génération automatique de quiz**, l’**analyse de documents pédagogiques** et l’**automatisation de processus éducatifs**.
+
+La plateforme **SmartHub** est une **plateforme éducative** conçue pour moderniser l’enseignement et faciliter l’échange entre **étudiants, enseignants et administrateurs** à travers des **assistants chatbot multi-agents**, la **génération automatique de quiz**, l’**analyse de documents pédagogiques** et l’**automatisation de processus éducatifs**.  
+
+**Lien de la plateforme déployée :**  
+[https://smart-education-platform-3qsejixj2.vercel.app](https://smart-education-platform-3qsejixj2.vercel.app)
+
 
 ---
 
