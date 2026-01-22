@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Configuration de base pour Axios
 const api = axios.create({
-  baseURL: 'https://smart-education-platform.onrender.com', // Votre backend
+  baseURL: 'https://smart-education-platform.onrender.com', 
   headers: {
     'Content-Type': 'application/json',
   },
