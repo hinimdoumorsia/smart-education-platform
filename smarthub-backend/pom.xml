@@ -5,7 +5,6 @@
                              https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <!-- Parent Spring Boot -->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -23,9 +22,7 @@
         <java.version>21</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <!-- ✅ AJOUT: Version JJWT -->
         <jjwt.version>0.11.5</jjwt.version>
-        <hibernate.version>6.4.4.Final</hibernate.version>
     </properties>
 
     <dependencies>
@@ -55,14 +52,14 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- PostgreSQL -->
+        <!-- MySQL Driver (Railway utilise MySQL/MariaDB) -->
         <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
             <scope>runtime</scope>
         </dependency>
 
-        <!-- ✅ AJOUT: Dépendances JJWT pour JWT -->
+        <!-- JJWT pour JWT -->
         <dependency>
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt-api</artifactId>
@@ -95,72 +92,34 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- ❌ SUPPRIMER: Ces dépendances database inutiles (gardez seulement PostgreSQL) -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.33</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mariadb.jdbc</groupId>
-            <artifactId>mariadb-java-client</artifactId>
-            <version>3.1.4</version>
-        </dependency>
-
-        <!-- Optionnel pour les appels HTTP -->
+        <!-- WebFlux pour appels HTTP -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
         
+        <!-- Mail -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
         </dependency>
-              
+
+        <!-- JSON processing -->
         <dependency>
-            <groupId>com.sun.mail</groupId>
-            <artifactId>jakarta.mail</artifactId>
-            <version>2.0.1</version>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
         </dependency>
         
-         <!-- Ollama Java Client -->
-
-		<!-- JSON processing -->
-		<dependency>
-		    <groupId>com.fasterxml.jackson.core</groupId>
-		    <artifactId>jackson-databind</artifactId>
-		</dependency>
-		
-		<!-- Dans pom.xml -->
-		<dependency>
-		    <groupId>com.pgvector</groupId>
-		    <artifactId>pgvector</artifactId>
-		    <version>0.1.5</version>
-		</dependency>
-		<!-- Dans pom.xml -->
-		<dependency>
-		    <groupId>org.apache.pdfbox</groupId>
-		    <artifactId>pdfbox</artifactId>
-		    <version>3.0.2</version>
-		</dependency>
+        <!-- PDFBox -->
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>3.0.2</version>
+        </dependency>
     </dependencies>
 
     <build>
-        <resources>
-            <!-- Désactiver filtering pour éviter MalformedInputException -->
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>false</filtering>
-                <includes>
-                    <include>**/*.properties</include>
-                    <include>**/*.yml</include>
-                </includes>
-            </resource>
-        </resources>
-
         <plugins>
-            <!-- Compiler plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -176,7 +135,6 @@
                 </configuration>
             </plugin>
 
-            <!-- Spring Boot plugin -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
@@ -187,16 +145,6 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
-                </configuration>
-            </plugin>
-
-            <!-- Resources plugin pour UTF-8 -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-                <version>3.3.1</version>
-                <configuration>
-                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
         </plugins>
