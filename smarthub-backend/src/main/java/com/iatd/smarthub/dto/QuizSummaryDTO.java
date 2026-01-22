@@ -14,19 +14,20 @@ public class QuizSummaryDTO {
     private String description;
     private Boolean active;
     private LocalDateTime createdAt;
-    private Integer questionCount = 0; // Initialisé à 0
+    private Long questionCount = 0L; // Changé de Integer à Long
 
     // Constructeurs
     public QuizSummaryDTO() {
     }
 
+    // Constructeur modifié : dernier paramètre changé de Integer à Long
     public QuizSummaryDTO(Long id, String title, String description, Boolean active,
-            LocalDateTime createdAt, Integer questionCount) {
+            LocalDateTime createdAt, Long questionCount) { // Long au lieu de Integer
         this.id = id;
         this.title = title;
         this.description = description;
         this.active = active;
         this.createdAt = createdAt;
-        this.questionCount = questionCount != null ? questionCount : 0;
+        this.questionCount = questionCount != null ? questionCount : 0L;
     }
 }
