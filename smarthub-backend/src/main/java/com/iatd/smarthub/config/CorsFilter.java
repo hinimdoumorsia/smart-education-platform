@@ -32,7 +32,8 @@ public class CorsFilter implements Filter {
         // Déterminer quelle origine autoriser
         String allowedOrigin = determineAllowedOrigin(origin);
         
-        if (!allowedOrigin.isEmpty()) {
+        // ⚠️ SEULEMENT si on a une origine valide
+        if (allowedOrigin != null && !allowedOrigin.isEmpty()) {
             response.setHeader("Access-Control-Allow-Origin", allowedOrigin);
         }
         
@@ -52,8 +53,9 @@ public class CorsFilter implements Filter {
     }
 
     private String determineAllowedOrigin(String origin) {
+        // ⚠️ SI ORIGIN EST NULL, NE RETOURNE RIEN
         if (origin == null) {
-            return "http://localhost:3000"; // Par défaut
+            return null;
         }
         
         // Liste des origines autorisées
@@ -61,7 +63,7 @@ public class CorsFilter implements Filter {
             return origin; // Autoriser tous les localhost
         }
         
-        // Vercel domains - CORRECTION DU REGEX
+        // Vercel domains
         if (origin.equals("https://smart-education-platform-3qsejixj2.vercel.app") ||
             origin.equals("https://smart-education-platform-pied.vercel.app") ||
             origin.matches("^https://smart-education-platform-[a-zA-Z0-9]+\\.vercel\\.app$") ||
@@ -74,8 +76,8 @@ public class CorsFilter implements Filter {
             return origin;
         }
         
-        // Par défaut, refuser (retourner une origine vide)
-        return "";
+        // Origine non autorisée
+        return null;
     }
 
     @Override
