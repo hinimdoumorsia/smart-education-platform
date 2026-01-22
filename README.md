@@ -498,6 +498,15 @@ Remarques :
 - Spring Boot docs: https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/
 - Docker: https://docs.docker.com/
 
+## 📬 Contact
+
+Pour la réalisation de vos projets intégrant des technologies avancées, des modèles conçus sur mesure et des infrastructures d’intelligence artificielle complètes, veuillez me contacter à travers le site suivant ou mon portfolio :  
+[https://site-web-nodemailer.vercel.app/](https://site-web-nodemailer.vercel.app/)
+
+Je suis disponible pour toute collaboration sur un projet donné, que ce soit en **développement**, en **intelligence artificielle** ou en **logiciel**.  
+
+Cordialement,  
+**Hinimdou Morsia Guitdam**
 
 Fin
 ---
