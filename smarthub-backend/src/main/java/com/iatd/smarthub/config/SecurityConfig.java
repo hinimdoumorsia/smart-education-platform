@@ -161,7 +161,8 @@ public class SecurityConfig {
             "http://localhost:8081",
             "https://smart-education-platform-pied.vercel.app",          // Votre domaine Vercel actuel
             "https://smart-education-platform-*.vercel.app",            // Tous les sous-domaines Vercel
-            "https://smart-education-platform.onrender.com"             // Votre backend lui-même
+            "https://smart-education-platform.onrender.com" ,
+            "smart-education-platform-3qsejixj2.vercel.app"// Votre backend lui-même
         ));
         config.setAllowedMethods(Arrays.asList("GET","POST","PUT","DELETE","OPTIONS","PATCH","HEAD"));
         config.setAllowedHeaders(Arrays.asList("Authorization","Content-Type","Accept","X-Requested-With","Origin"));
