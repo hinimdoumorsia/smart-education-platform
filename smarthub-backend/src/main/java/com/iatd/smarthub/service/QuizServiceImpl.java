@@ -249,7 +249,7 @@ public class QuizServiceImpl implements QuizService {
         dto.setTitle(quiz.getTitle());
         dto.setDescription(quiz.getDescription());
         dto.setActive(quiz.getActive());
-        dto.setQuestionCount(quiz.getQuestions() != null ? quiz.getQuestions().size() : 0);
+        dto.setQuestionCount(quiz.getQuestions() != null ? (long) quiz.getQuestions().size() : 0L);
         
         // Cours - si votre DTO a ces méthodes
         if (quiz.getCourse() != null) {
