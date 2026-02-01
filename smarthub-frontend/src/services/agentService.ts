@@ -1,10 +1,11 @@
 import axios from 'axios';
 
-const API_BASE = 'http://localhost:8081/api';
+// CORRECTION UNIQUE : CHANGER L'URL LOCALHOST PAR RENDER
+const API_BASE = 'https://smart-education-platform.onrender.com/api';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8081',
-  timeout: 600000, // 10 minutes
+  baseURL: 'https://smart-education-platform.onrender.com',
+  timeout: 600000,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -24,7 +25,6 @@ api.interceptors.request.use(
 );
 
 export const agentService = {
-  // Vérifier l'éligibilité pour un quiz
   checkQuizEligibility: async (userId: number, courseId: number) => {
     try {
       const response = await api.get(`${API_BASE}/agent/course-quiz/eligibility`, {
@@ -66,7 +66,6 @@ export const agentService = {
     }
   },
 
-  // Initier un quiz standard - TIMEOUT À 10 MINUTES
   initiateCourseQuiz: async (userId: number, courseId: number) => {
     try {
       console.log('🎯 Initiating course quiz with URL params:', { userId, courseId });
@@ -75,7 +74,7 @@ export const agentService = {
         `${API_BASE}/agent/course-quiz/initiate?userId=${userId}&courseId=${courseId}`,
         {},
         { 
-          timeout: 600000 // 10 MINUTES
+          timeout: 600000
         }
       );
       
@@ -104,7 +103,6 @@ export const agentService = {
     } catch (error: any) {
       console.error('❌ Course quiz initiation error:', error);
       
-      // Si timeout, retourner un fallback au lieu d'erreur
       if (error.code === 'ECONNABORTED') {
         console.log('⚠️ Timeout détecté, création de fallback');
         return {
@@ -164,7 +162,6 @@ export const agentService = {
     }
   },
 
-  // Soumettre un quiz standard
   submitCourseQuiz: async (attemptId: number, submission: any) => {
     try {
       console.log('📤 Submitting quiz attempt:', attemptId);
@@ -184,7 +181,6 @@ export const agentService = {
     }
   },
 
-  // Obtenir les statistiques du quiz
   getCourseQuizStats: async (userId: number, courseId: number) => {
     try {
       const response = await api.get(`${API_BASE}/agent/course-quiz/stats`, {
@@ -227,7 +223,6 @@ export const agentService = {
     }
   },
 
-  // Initier un quiz adaptatif IA - TIMEOUT À 10 MINUTES
   initiateAdaptiveQuiz: async (userId: number, courseId: number, strategy?: string) => {
     try {
       console.log('🧠 Initiating adaptive quiz:', { userId, courseId, strategy });
@@ -241,7 +236,7 @@ export const agentService = {
         url,
         {},
         { 
-          timeout: 600000 // 10 MINUTES
+          timeout: 600000
         }
       );
       
@@ -266,7 +261,6 @@ export const agentService = {
       console.error('❌ Adaptive quiz error:', error);
       
       if (error.code === 'ECONNABORTED' || error.message?.includes('timeout')) {
-        // Fallback pour timeout
         return {
           status: 'SUCCESS',
           message: 'Quiz adaptatif généré (mode secours)',
@@ -303,7 +297,6 @@ export const agentService = {
     }
   },
 
-  // Générer un quiz RAG - TIMEOUT À 10 MINUTES
   generateRAGQuiz: async (userId: number, topic: string) => {
     try {
       const response = await api.post(
@@ -311,7 +304,7 @@ export const agentService = {
         null,
         {
           params: { userId, topic },
-          timeout: 600000 // 10 MINUTES
+          timeout: 600000
         }
       );
       return response.data;
@@ -323,5 +316,3 @@ export const agentService = {
 };
 
 export default agentService;
-
-
