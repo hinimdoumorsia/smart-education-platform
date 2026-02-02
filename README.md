@@ -14,7 +14,7 @@
 
 ---
 
-## 📌 Description Générale
+##  Description Générale
 
 # SmartHub – Plateforme Éducative
 
@@ -28,7 +28,7 @@ La plateforme **SmartHub** est une **plateforme éducative** conçue pour modern
 
 ---
 
-## 🎯 Objectifs
+##  Objectifs
 
 - Centraliser les activités pédagogiques (cours, quiz, projets, stages, ressources)
 - Automatiser la génération et l’évaluation de quiz grâce à l’IA
@@ -37,7 +37,7 @@ La plateforme **SmartHub** est une **plateforme éducative** conçue pour modern
 
 ---
 
-## 🧠 Fonctionnalités Principales
+##  Fonctionnalités Principales
 
 - Gestion des utilisateurs (STUDENT, TEACHER, ADMIN)
 - Authentification et gestion du profil
@@ -53,7 +53,7 @@ La plateforme **SmartHub** est une **plateforme éducative** conçue pour modern
 
 ---
 
-## 🏗️ Architecture Générale
+##  Architecture Générale
 
 Frontend (React + TypeScript)  
 → Backend API REST (Spring Boot)  
@@ -62,7 +62,7 @@ Frontend (React + TypeScript)
 
 ---
 
-# 🔧 Backend — SmartHub API REST (IATD)
+#  Backend — SmartHub API REST (IATD)
 
 ## Stack Technique
 Java 21, Spring Boot 3.4.11, Spring Data JPA, PostgreSQL 13, Maven, Lombok.
@@ -126,7 +126,7 @@ GET /api/v1/resources
 
 ---
 
-# 🎨 Frontend — SmartHub Web
+#  Frontend — SmartHub Web
 
 ## Stack Frontend
 React 18, TypeScript, Create React App, Context API, Services API, intégration IA (Botpress, RAG).
@@ -183,7 +183,7 @@ Application accessible sur http://localhost:3000
 
 ---
 
-# 🤖 Intelligence Artificielle
+#  Intelligence Artificielle
 
 ## RAG (Retrieval-Augmented Generation)
 - Indexation de documents pédagogiques
@@ -198,10 +198,10 @@ Application accessible sur http://localhost:3000
 
 ---
 
-## 👨‍💻 Projet
+##  Projet
 SmartHub — Plateforme éducative intelligente intégrant l’IA moderne, les LLM, le RAG et les systèmes multi-agents.
 
-📄 **Documentation**  
+ **Documentation**  
 Chaque dossier **Backend** et **Frontend** dispose de sa **propre documentation détaillée**.  
 Veuillez consulter les fichiers `README.md` et le dossier `docs/` correspondants dans chaque partie du projet pour plus d’informations techniques et fonctionnelles.
 
@@ -212,9 +212,9 @@ Guide d'installation et d'exécution du projet SmartHub (smarthub1)
 Ce guide explique pas à pas comment préparer la base de données MariaDB (ou MariaDB via Docker), configurer l'application, et exécuter le projet SmartHub (répertoire `smarthub1`) sur Windows (cmd.exe). Il indique aussi les modifications à effectuer si vous souhaitez exécuter le projet sur un autre poste ou avec d'autres identifiants.
 
 ---
-## 📥 Cloner et exécuter le projet SmartHub
+##  Cloner et exécuter le projet SmartHub
 
-### 🧩 Prérequis
+###  Prérequis
 - Git installé : https://git-scm.com/downloads  
 - Connexion Internet  
 - (Optionnel) Java 21, Node.js et PostgreSQL pour exécuter le projet
@@ -498,7 +498,7 @@ Remarques :
 - Spring Boot docs: https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/
 - Docker: https://docs.docker.com/
 
-## 📬 Contact
+##  Contact
 
 Pour la réalisation de vos projets intégrant des technologies avancées, des modèles conçus sur mesure et des infrastructures d’intelligence artificielle complètes, veuillez me contacter à travers le site suivant ou mon portfolio :  
 [https://site-web-nodemailer.vercel.app/](https://site-web-nodemailer.vercel.app/)
