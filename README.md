@@ -508,5 +508,9 @@ Je suis disponible pour toute collaboration sur un projet donné, que ce soit en
 Cordialement,  
 **Hinimdou Morsia Guitdam**
 
+participant au projet:
+**Hinimdou Morsia Guitdam**
+**SOULEYMANE DIALLO**
+
 Fin
 ---
