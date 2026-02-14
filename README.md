@@ -508,8 +508,16 @@ Je suis disponible pour toute collaboration sur un projet donné, que ce soit en
 Cordialement,  
 ---
 **Hinimdou Morsia Guitdam**
-**SOULEYMANE DIALLO**
 ---
-
+┌─────────────────────────────────────────────────────┐
+│                                                     │
+│   🔹 Hinimdou Morsia Guitdam                        │
+│      ( Développeur / Collaborateur)              │
+│                                                     │
+│   🔹 SOULEYMANE DIALLO                               │
+│      (Développeur / Collaborateur)                   │
+│                                                                                            │
+│                                                     │
+└─────────────────────────────────────────────────────┘
 Fin
 ---
