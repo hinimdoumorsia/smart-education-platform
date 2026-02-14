@@ -509,17 +509,9 @@ Cordialement,
 ---
 **Hinimdou Morsia Guitdam**
 ---
-'''
-┌─────────────────────────────────────────────────────┐
-│                                                     │
-│   🔹 Hinimdou Morsia Guitdam                        │
-│      ( Développeur / Collaborateur)              │
-│                                                     │
-│   🔹 SOULEYMANE DIALLO                               │
-│      (Développeur / Collaborateur)                   │
-│                                                                                            │
-│                                                     │
-└─────────────────────────────────────────────────────┘
-'''
+## 👥 Équipe de développement
+
+- 🔹 **Hinimdou Morsia Guitdam** - Développeur / Collaborateur
+- 🔹 **SOULEYMANE DIALLO** - Développeur / Collaborateur
 Fin
 ---
