@@ -506,11 +506,10 @@ Pour la réalisation de vos projets intégrant des technologies avancées, des m
 Je suis disponible pour toute collaboration sur un projet donné, que ce soit en **développement**, en **intelligence artificielle** ou en **logiciel**.  
 
 Cordialement,  
-**Hinimdou Morsia Guitdam**
-
-participant au projet:
+---
 **Hinimdou Morsia Guitdam**
 **SOULEYMANE DIALLO**
+---
 
 Fin
 ---
