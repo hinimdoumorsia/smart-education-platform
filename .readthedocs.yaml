@@ -1,7 +1,7 @@
 version: 2
 
 build:
-  os: ubuntu-22.04   # <--- ajoute ça
+  os: ubuntu-22.04
   image: latest
 
 python:
@@ -13,3 +13,5 @@ python:
 
 mkdocs:
   configuration: mkdocs.yml
+  build:
+    - method: mkdocs
