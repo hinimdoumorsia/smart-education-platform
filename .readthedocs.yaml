@@ -13,5 +13,3 @@ python:
 
 mkdocs:
   configuration: mkdocs.yml
-  build:
-    - method: mkdocs
