@@ -1,0 +1,15 @@
+site_name: Smart Education Platform
+site_description: AI-powered intelligent learning platform
+site_author: Hinimdou Morsia
+
+theme:
+  name: material
+  custom_dir: overrides
+
+nav:
+  - Installation: installation
+  - Architecture: architecture
+  - Backend API: backend
+  - Frontend: frontend
+  - AI System: ai-system
+  - Deployment: deployment
