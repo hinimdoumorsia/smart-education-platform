@@ -1,0 +1,20 @@
+version: 2
+
+sphinx:
+  configuration: docs/conf.py  # facultatif, si tu n’as pas Sphinx
+
+build:
+  image: latest
+
+python:
+  version: 3.11
+  install:
+    - method: pip
+      path: .
+    - requirements: requirements.txt  # si tu as un fichier requirements.txt
+
+formats:
+  - html
+
+mkdocs:
+  configuration: mkdocs.yml
