@@ -27,6 +27,17 @@ La plateforme **SmartHub** est une **plateforme éducative** conçue pour modern
 
 
 ---
+# Documentation Complète du Projet
+
+Vous pouvez consulter la documentation complète du projet en suivant le lien ci-dessous.  
+Prenez votre temps : tout y est détaillé, accompagné de vidéos explicatives et de démonstrations pratiques.  
+
+Bonne visualisation !  
+
+[Accéder à la documentation complète du projet](https://smart-education-platform.readthedocs.io/en/latest/)
+
+
+---
 
 ##  Objectifs
 
