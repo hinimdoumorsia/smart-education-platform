@@ -5,11 +5,21 @@ site_author: Hinimdou Morsia
 theme:
   name: material
   custom_dir: overrides
+  features:
+    - navigation.instant        # rend la navigation rapide
+    - navigation.sections       # montre les sections du nav
+    - navigation.expand         # permet d’étendre les sous-pages
+    - toc.integrate             # affiche la table des matières dans la sidebar
+    - navigation.top            # pour avoir des flèches next/prev en bas
 
 nav:
-  - Installation: installation
-  - Architecture: architecture
-  - Backend API: backend
-  - Frontend: frontend
-  - AI System: ai-system
-  - Deployment: deployment
+  - Installation: installation.md
+  - User Guide: user-guide.md
+  - Architecture: architecture.md
+  - Backend API: backend.md
+  - Frontend: frontend.md
+  - AI System: ai-system.md
+  - Deployment: deployment.md
+
+plugins:
+  - search
