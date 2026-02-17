@@ -1,4 +1,4 @@
-# 🎓 SmartHub — Plateforme Éducative Intelligente (IA · LLM · RAG · Agents · Web Moderne)
+#  SmartHub — Plateforme Éducative Intelligente (IA · LLM · RAG · Agents · Web Moderne)
 
 <p align="center">
   <img src="https://img.shields.io/badge/Java-21-brightgreen?logo=java&logoColor=white" />
@@ -14,7 +14,7 @@
 
 ---
 
-##  Description Générale
+#  Description Générale
 
 # SmartHub – Plateforme Éducative
 
